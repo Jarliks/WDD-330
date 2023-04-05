@@ -18,6 +18,7 @@ class loggedMessage {
 var messageLog = [];
 
 //event listeners
+// click enterbuton
 inputButton.addEventListener("click", () => {
     if (inputText.value[0] === "/") {
         manageCommands(inputText.value);
@@ -26,6 +27,17 @@ inputButton.addEventListener("click", () => {
         inputMessage();
     }
 });
+// press enter key
+inputText.addEventListener("keyup", (e) => {
+    if (e.key == "Enter") {
+        if (inputText.value[0] === "/") {
+            manageCommands(inputText.value);
+        }
+        else {
+            inputMessage();
+        }
+    }
+})
 
 // place message into list
 function inputMessage(){
@@ -77,8 +89,14 @@ window.onload = () => {
         messageLog.forEach(message => {
             //messageLog.push(message);
             var newMessage = document.createElement("li");
-            newMessage.innerHTML = "<span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text;
+            if (message.sender === "Dungeon") {
+                newMessage.innerHTML = "<p class='dungeon'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
+            } else {
+                newMessage.innerHTML = "<p class='player'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
+            }
+            
             messages.appendChild(newMessage);
+            updateScroll();
         });
     }
 }
@@ -150,7 +168,7 @@ function manageCommands(input) {
 }
 
 function helpCommand() {
-    return "help";
+    return "List of commands: /help /roll100 /roll20 /roll12 /roll10 /roll8 /roll6 /roll4 /flip /findmonster";
 }
 
 //roll commands
@@ -195,6 +213,6 @@ function flipCoin() {
 // Find monster command
 function findMonster() {
     var monsterId = Math.floor(Math.random() * 2);
-    var reply = "Look out! You found a " + monsterManual.monsters[monsterId].name + ".<p>" + monsterManual.monsters[monsterId].art + "</p> " + monsterManual.monsters[monsterId].description;
+    var reply = "<p>Look out! You found a " + monsterManual.monsters[monsterId].name + ".</p><p>" + monsterManual.monsters[monsterId].description + "</p>";
     return reply;
 }

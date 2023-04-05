@@ -3,13 +3,11 @@
         {
             "id":"1",
             "name":"Goblin",
-            "art":"\\a>\n<0\\\n/ |",
             "description":"A small green humanoid with a big nose and a mischievious streak. Though clever, they're famously cowards."
         },
         {
             "id":"2",
             "name":"Dragon",
-            "art":"\\****__              ____\n|    *****\\_      --/ *\\-__\n/_          (_    ./ ,/----'\n\\__         (_./  /\n \\__           \\___----^__\n   _/   _                  \\\n|    _/  __/ )\\'\\ _____         *\\\n|\\__/   /    ^ ^       \\____      )\n \\___--'                    \\_____ )\n                                  ''\n",
             "description":"A huge lizard like reptile with great wings that breaths fire, stay away if you value your life and your gold."
         }
     ]

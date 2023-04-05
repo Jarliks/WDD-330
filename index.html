@@ -4,20 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
     <link rel="stylesheet" href="css/mobile.css" />
     <link rel="stylesheet" href="css/desktop.css" />
     <title>MUD | Alec Mateski</title>
   </head>
   <body>
-    <header>
+    <div id="grid-parent">
+      <header>
       <h1>MUD</h1>
-    </header>
-    <div id="message-log"><ul id="messages"></ul></div>
-    <input id="textbox" type="text" />
-    <button id="input-button">Enter</button>
-    <footer>
-      <p>MUD test build by Alec Mateski</p>
-    </footer>
+      </header>
+      <div id="message-log"><ul id="messages"><li><p>Welcome to the Dungeon, for a list of commands enter '/help'.</p></li></ul></div>
+      <div id="input">
+          <input id="textbox" type="text" />
+          <button id="input-button">Enter</button>
+      </div>
+      </div>
+      <footer>
+      <p>MUD test build by Alec Mateski 2023</p>
+      </footer>
+    </div>
   </body>
   <script type="module" src="js/message-logic.js"></script>
 </html>

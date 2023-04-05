@@ -1,10 +1,10 @@
 //save locations as variables
 var messages = document.getElementById("messages");
 var inputText = document.getElementById("textbox");
-var inputForm = document.getElementById("input-form");
+var inputButton = document.getElementById("input-button");
 
 //event listeners
-inputForm.addEventListener("submit", inputMessage())
+inputButton.addEventListener("click", inputMessage());
 
 // place message into list
 function inputMessage(){

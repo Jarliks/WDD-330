@@ -7,9 +7,9 @@ var monsterManualURL = "https://jarliks.github.io/WDD-330/json/monster-manual.js
 
 // onload- moved before fetch api to prevent issues
 window.onload = () => {
-    console.log("test1");
+    //console.log("test1");
     if (localStorage.getItem("messageLog") != null) {
-        console.log("test2");
+        //console.log("test2");
         messageLog = JSON.parse(localStorage.getItem("messageLog"));
         messageLog.forEach(message => {
             //messageLog.push(message);

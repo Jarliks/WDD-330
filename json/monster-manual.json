@@ -9,6 +9,21 @@
             "id":"2",
             "name":"Dragon",
             "description":"A huge lizard like reptile with great wings that breaths fire, stay away if you value your life and your gold."
+        },
+        {
+            "id":"3",
+            "name":"Skeleton",
+            "description":"A shambling pile of bones reanimated by some evil magic."
+        },
+        {
+            "id":"4",
+            "name":"Unicorn",
+            "description":"A strange horse-like creature witha single horn. They're rare and said to be good omens."
+        },
+        {
+            "id":"5",
+            "name":"Orc",
+            "description":"Bigger than a goblin, but dumber too. These brutes will bash your head in just to take your boots that don't fit them."
         }
     ]
 }

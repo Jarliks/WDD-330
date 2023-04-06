@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p, input[type=text], button {
 }
 
 #grid-parent {
-    height: 93vh;
+    height: 95vh;
     display: grid;
     grid-template-rows: auto 1fr auto auto;
     grid-template-columns: 100%;
@@ -23,8 +23,9 @@ h1, h2, h3, h4, h5, h6, p, input[type=text], button {
 }
 
 .timestamp {
-    /*display: none;*/
+    display: none;
     color: rgb(87, 87, 87);
+    font-size: x-small;
 }
 
 ul {

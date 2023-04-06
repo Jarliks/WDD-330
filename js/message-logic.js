@@ -3,9 +3,27 @@ var messages = document.getElementById("messages");
 var inputText = document.getElementById("textbox");
 var inputButton = document.getElementById("input-button");
 var messageScroll = document.getElementById("message-log");
+var monsterManualURL = "https://jarliks.github.io/WDD-330/json/monster-manual.json";
 
 //read .json file with fetch
-import monsterManual from "/json/monster-manual.json" assert {type: "json"};
+//import monsterManual from "/json/monster-manual.json" assert {type: "json"}; //(for use for local retrieval of .json)
+async function apiFetch(url) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        var data = await response.json();
+        console.log(data);
+        return data;
+      } else {
+        throw Error(await response.text());
+      }
+    } catch (error) {
+      console.log(error);
+    }
+}
+//  run fetch
+var monsterManual = await apiFetch(monsterManualURL);
+console.log(monsterManual);
 
 // build full message class
 class loggedMessage {
@@ -212,7 +230,7 @@ function flipCoin() {
 
 // Find monster command
 function findMonster() {
-    var monsterId = Math.floor(Math.random() * 2);
+    var monsterId = Math.floor(Math.random() * 5);
     var reply = "<p>Look out! You found a " + monsterManual.monsters[monsterId].name + ".</p><p>" + monsterManual.monsters[monsterId].description + "</p>";
     return reply;
 }

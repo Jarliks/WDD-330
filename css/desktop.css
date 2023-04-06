@@ -1,0 +1,10 @@
+@media only screen and (min-width: 50em){
+    .timestamp {
+        display: inline;
+    }
+
+    #grid-parent {
+        width: 80%;
+        margin: auto;
+    }
+}

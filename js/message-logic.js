@@ -5,6 +5,27 @@ var inputButton = document.getElementById("input-button");
 var messageScroll = document.getElementById("message-log");
 var monsterManualURL = "https://jarliks.github.io/WDD-330/json/monster-manual.json";
 
+// onload- moved before fetch api to prevent issues
+window.onload = () => {
+    console.log("test1");
+    if (localStorage.getItem("messageLog") != null) {
+        console.log("test2");
+        messageLog = JSON.parse(localStorage.getItem("messageLog"));
+        messageLog.forEach(message => {
+            //messageLog.push(message);
+            var newMessage = document.createElement("li");
+            if (message.sender === "Dungeon") {
+                newMessage.innerHTML = "<p class='dungeon'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
+            } else {
+                newMessage.innerHTML = "<p class='player'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
+            }
+            
+            messages.appendChild(newMessage);
+            updateScroll();
+        });
+    }
+}
+
 //read .json file with fetch
 //import monsterManual from "/json/monster-manual.json" assert {type: "json"}; //(for use for local retrieval of .json)
 async function apiFetch(url) {
@@ -12,7 +33,7 @@ async function apiFetch(url) {
       const response = await fetch(url);
       if (response.ok) {
         var data = await response.json();
-        console.log(data);
+        //console.log(data);
         return data;
       } else {
         throw Error(await response.text());
@@ -23,7 +44,7 @@ async function apiFetch(url) {
 }
 //  run fetch
 var monsterManual = await apiFetch(monsterManualURL);
-console.log(monsterManual);
+//console.log(monsterManual);
 
 // build full message class
 class loggedMessage {
@@ -100,25 +121,6 @@ function getDate() {
 
     return formattedDate;
 }
-
-window.onload = () => {
-    if (localStorage.getItem("messageLog") != null) {
-        messageLog = JSON.parse(localStorage.getItem("messageLog"));
-        messageLog.forEach(message => {
-            //messageLog.push(message);
-            var newMessage = document.createElement("li");
-            if (message.sender === "Dungeon") {
-                newMessage.innerHTML = "<p class='dungeon'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
-            } else {
-                newMessage.innerHTML = "<p class='player'><span class='timestamp'>" + message.timestamp + "</span> " + message.sender + ": " + message.text + "</p>";
-            }
-            
-            messages.appendChild(newMessage);
-            updateScroll();
-        });
-    }
-}
-
 
 /////////////!!!  Commands  !!!/////////////
 
